@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb"
+        android:layout_width="0dp"
+        android:layout_height="?actionBarSize"
+        app:contentInsetStart="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_instagram"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="cursive"
+                android:text="@string/instagam"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_msg_icon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="20dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/message_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/round_corner"
+                android:src="@drawable/plus_icon"
+                app:layout_constraintEnd_toStartOf="@id/img_msg_icon"
+                app:layout_constraintTop_toTopOf="@id/img_msg_icon" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tb">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <HorizontalScrollView
+                android:id="@+id/hsv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/cImg_pp"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/ic_person"
+                        app:civ_border="true"
+                        app:civ_border_color="@color/coral"
+                        app:civ_border_width="1dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="@drawable/round_plus_icon"
+                        app:civ_border="true"
+                        app:civ_border_color="@color/white"
+                        app:civ_border_width="3dp"
+                        app:layout_constraintBottom_toBottomOf="@id/cImg_pp"
+                        app:layout_constraintEnd_toEndOf="@id/cImg_pp" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tv_yrStory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/your_story"
+                        app:layout_constraintEnd_toEndOf="@id/cImg_pp"
+                        app:layout_constraintStart_toStartOf="@id/cImg_pp"
+                        app:layout_constraintTop_toBottomOf="@id/cImg_pp" />
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_status"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="@id/cImg_pp"
+                        app:layout_constraintStart_toEndOf="@id/cImg_pp"
+                        app:layout_constraintTop_toTopOf="@id/cImg_pp" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </HorizontalScrollView>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/light_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hsv_status" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_posts"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hsv_status" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
